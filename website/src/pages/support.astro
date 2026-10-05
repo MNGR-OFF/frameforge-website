@@ -1,0 +1,9 @@
+---
+import Document from '../layouts/Document.astro';
+import { site, localUrl } from '../data/site';
+---
+<Document title="Keep the forge moving" description="Start with the guide. If you need a second pair of eyes, give the creator enough detail to reproduce the issue." eyebrow="SUPPORT">
+  <section><h2>Contact the creator</h2><div class="support-contact"><strong>{site.creator}</strong><p>Use this handle in Discord. There is no published FrameForge server invite or support email on this site.</p></div><p>Support availability and response times are not guaranteed. The project is currently an alpha, so test imports before using them in a released experience.</p></section>
+  <section><h2>Make your report useful</h2><ul><li>Your FrameForge version in Figma and Studio.</li><li>The selected root and the steps that produced the issue.</li><li>The exact export warning or import-report message.</li><li>The expected result and what actually happened.</li><li>A small design or export you have permission to share, with private content removed.</li></ul><div class="notice"><strong>Keep authorization details private</strong><p>Never share access or refresh tokens, connection credentials, API keys, client secrets, or private account-service files. Crop screenshots so they do not expose credentials.</p></div></section>
+  <section><h2>Common fixes, close at hand</h2><p><a href={localUrl('guide/#troubleshooting')}>Selection, fonts, masks, images, and looping effects</a> are covered in the troubleshooting guide.</p><p><a href={localUrl('account/')}>Hosted account linking</a> is not live yet. Manual PNG uploads and mappings remain the supported alternative.</p><p><a href={localUrl('changelog/')}>Read the verified release notes</a> to see which behavior changed in the current package.</p></section>
+</Document>

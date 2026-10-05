@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import { localUrl } from '../data/site';
+---
+<figure class="forge-scene" aria-labelledby="scene-caption" data-motion>
+  <div class="scene-topline"><span><i aria-hidden="true"></i> CONVERSION WORKBENCH</span><span>FIGMA / STUDIO</span></div>
+  <div class="scene-grid" aria-hidden="true">
+    <div class="design-window">
+      <div class="window-toolbar"><span class="window-dots">● ● ●</span><span>Launch panel.fig</span><span>100%</span></div>
+      <div class="design-canvas"><span class="design-label">ROOT FRAME / 420 × 300</span><div class="example-panel"><div class="panel-monogram">FF</div><div class="panel-title">Ready to create?</div><div class="panel-subtitle">Your next world starts here.</div><div class="example-launch"><span>LET’S BUILD</span></div><div class="panel-coordinates">X: 0 &nbsp; Y: 0 &nbsp; AUTO LAYOUT</div></div><span class="selection-handle top-left"></span><span class="selection-handle top-right"></span><span class="selection-handle bottom-left"></span><span class="selection-handle bottom-right"></span></div>
+      <div class="scene-tab"><span class="mini-icon">◇</span> Figma design <span>EDITABLE LAYERS</span></div>
+    </div>
+    <div class="forge-bridge"><span class="bridge-line"></span><div class="forge-core"><img src={localUrl('assets/frameforge-logo.png')} width="114" height="84" alt="" /></div><span class="bridge-line"></span><span class="bridge-label">FORGE</span></div>
+    <div class="hierarchy-window"><div class="window-toolbar"><span>Explorer</span><span class="window-dots">•••</span></div><div class="tree"><div class="tree-root"><Icon name="chevron" /><Icon name="layers" class="tree-icon" /> ScreenGui <span class="tree-badge">UI</span></div><div class="tree-level"><div><Icon name="chevron" /><Icon name="square" class="tree-icon" /> LaunchPanel</div><div class="tree-level"><div><Icon name="layout" class="tree-icon" /> UIListLayout</div><div><Icon name="text" class="tree-icon" /> Title</div><div><Icon name="text" class="tree-icon" /> Subtitle</div><div class="tree-active"><Icon name="chevron" /><Icon name="square" class="tree-icon" /> LaunchButton</div><div class="tree-level"><div><Icon name="clip" class="tree-icon" /> StripeMask</div><div><Icon name="text" class="tree-icon" /> Label</div></div></div></div></div><div class="scene-tab"><Icon name="layers" class="mini-icon" /> Roblox Studio <span>NATIVE OBJECTS</span></div></div>
+  </div>
+  <div class="scene-bottom"><span class="scene-chip"><Icon name="check" /> Hierarchy preserved</span><span class="scene-chip"><Icon name="check" /> Ready to edit</span><button class="motion-control" type="button" aria-pressed="false" hidden>Pause motion</button></div>
+  <figcaption id="scene-caption">Illustrative example · conversion happens in the plugins.</figcaption>
+</figure>
