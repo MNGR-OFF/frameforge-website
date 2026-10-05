@@ -1,9 +1,0 @@
----
-import { site, localUrl } from '../data/site';
-import Icon from './Icon.astro';
-const download = site.downloads.studio;
----
-{download.enabled && <section class="studio-download" id="studio-download" aria-labelledby="studio-download-title">
-  <div class="download-intro"><div><h2 id="studio-download-title">Install Studio from a file<span class="accent">.</span></h2><p>A direct route when the store listing is unavailable. Download FrameForge, add it to your local plugins, and reopen Studio.</p></div><div class="download-action"><a class="button primary" href={localUrl(download.path)} download={download.fileName}><Icon name="down" /> Download FrameForge</a><p>Studio plugin · {download.version} alpha · 350 KB</p><a class="text-link" href={localUrl('guide/#studio-install')}>Installation details <Icon name="arrow" /></a></div></div>
-  <ol class="download-steps"><li><span class="download-step-number">1</span><div><h3>Open Plugins Folder</h3><p>In Studio, open <strong>Plugins → Plugins Folder</strong>, then close Studio.</p></div></li><li><span class="download-step-number">2</span><div><h3>Add the plugin file</h3><p>Move <span class="download-filename">{download.fileName}</span> into that folder. Keep the file intact.</p></div></li><li><span class="download-step-number">3</span><div><h3>Reopen Studio</h3><p>Open <strong>Plugins → FrameForge</strong>. Disable an older copy in Manage Plugins so one copy runs.</p></div></li></ol>
-</section>}
