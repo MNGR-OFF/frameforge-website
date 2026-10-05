@@ -76,6 +76,14 @@ for (const [path, { html }] of htmlPages) {
   assert(canonical === pageUrl.href || (path === '404.html' && canonical === new URL(`${base}404/`, origin).href), `${path}: incorrect canonical URL (${canonical || 'missing'})`);
   assert(ogUrl === canonical, `${path}: social URL must match canonical`);
   assert(!!meta.find(item => item.name === 'description')?.content, `${path}: description missing`);
+  if (route === 'privacy/' || route === 'terms/') {
+    const noindex = meta.some(item => item.name === 'robots' && /\bnoindex\b/.test(item.content || ''));
+    if (site.legal.publicationReady) {
+      assert(!noindex && html.includes(`Effective date: ${site.legal.effectiveDate}`), `${path}: adopted policy must show its effective date and permit indexing`);
+    } else {
+      assert(noindex && /Review draft/.test(html) && !/Effective date:/i.test(html), `${path}: unadopted policy must remain visibly labelled as a draft, noindexed, and without an effective date`);
+    }
+  }
   assert(meta.some(item => item.name === 'twitter:card' && item.content === 'summary_large_image'), `${path}: social card missing`);
   assert(social === new URL(`${base}assets/social-preview.png`, origin).href, `${path}: social image uses incorrect origin/base`);
   const csp = meta.find(item => item['http-equiv']?.toLowerCase() === 'content-security-policy')?.content || '';
@@ -91,6 +99,12 @@ for (const [path, { html }] of htmlPages) {
       let url;
       try { url = new URL(ref, pageUrl); }
       catch { problems.push(`${path}: invalid URL ${ref}`); continue; }
+      if (url.protocol === 'mailto:') {
+        const query = [...url.searchParams];
+        const permittedSubject = query.length === 0 || query.length === 1 && query[0][0] === 'subject' && query[0][1] === 'FrameForge privacy';
+        assert(/^<a\b/i.test(match[0]) && url.pathname === site.legal.contact && !url.hash && permittedSubject && !/%0[ad]|[\r\n]/i.test(ref), `${path}: unexpected email destination or headers ${ref}`);
+        continue;
+      }
       if (url.origin === origin.origin) { localReferences++; localDestination(url, path); }
       else {
         assert(url.protocol === 'https:' && !url.username && !url.password && !url.port, `${path}: unsafe external URL ${ref}`);
@@ -116,8 +130,14 @@ for (const file of files) {
   }
   if (file.endsWith('.css')) {
     const css = await readFile(file, 'utf8');
+    assert(!/@import\b/i.test(css), `${path}: unexpected CSS import; bundle styles into the local build`);
     for (const match of css.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) {
-      if (!match[1].startsWith('data:')) localDestination(new URL(match[1], new URL(`${base}${path}`, origin)), path, false);
+      if (match[1].startsWith('data:')) continue;
+      let url;
+      try { url = new URL(match[1], new URL(`${base}${path}`, origin)); }
+      catch { problems.push(`${path}: invalid CSS URL ${match[1]}`); continue; }
+      assert(url.origin === origin.origin, `${path}: external CSS request ${match[1]}`);
+      if (url.origin === origin.origin) localDestination(url, path, false);
     }
   }
 }
@@ -129,11 +149,13 @@ assert(published.has('robots.txt') && published.has('sitemap.xml'), 'robots.txt 
 if (published.has('robots.txt')) {
   const robots = await readFile(join(dist, 'robots.txt'), 'utf8');
   assert(robots.includes(new URL(`${base}sitemap.xml`, origin).href), 'robots sitemap URL has incorrect origin/base');
+  assert(!/^\s*Disallow:\s*\S+/im.test(robots), 'Public routes must remain crawlable so policy noindex metadata can be read');
 }
 if (published.has('sitemap.xml')) {
   const sitemap = await readFile(join(dist, 'sitemap.xml'), 'utf8');
   const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => decode(match[1]));
   for (const route of routes.filter(route => !['privacy/', 'terms/', '404.html'].includes(route))) assert(locations.includes(new URL(`${base}${route}`, origin).href), `Sitemap omits ${route || '/'}`);
+  for (const route of ['privacy/', 'terms/']) assert(locations.includes(new URL(`${base}${route}`, origin).href) === site.legal.publicationReady, `Sitemap must match ${route} adoption status`);
   for (const location of locations) localDestination(new URL(location), 'sitemap.xml', false);
 }
 if (problems.length) { console.error(`Static verification failed (${problems.length}):\n${problems.map(problem => `- ${problem}`).join('\n')}`); process.exit(1); }

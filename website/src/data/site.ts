@@ -9,8 +9,10 @@ export const site = {
   account: { available: false, status: 'Hosted linking is not live', proposedOrigin: 'https://api.frameforgeui.website' },
   legal: {
     publicationReady: false, status: 'Review draft', reviewedOn: 'October 5, 2026', effectiveDate: null,
-    decisionsReviewed: false, operatorName: null, contact: null, jurisdiction: null,
-    retentionReviewed: false, providersReviewed: false
+    decisionsReviewed: false, operatorName: 'MNGR', operatorPublicName: '@mngr06',
+    contact: 'grnour06@gmail.com', discord: '@mngr06', jurisdiction: 'Morocco',
+    contactMonitored: true, responseProcedureReady: false,
+    retentionReviewed: true, providersReviewed: false, legalScopeReviewed: false
   },
   links: {
     figmaPlugin: null as string | null,

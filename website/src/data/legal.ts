@@ -1,195 +1,206 @@
+import { site } from './site';
+
 export interface LegalSection {
   id: string;
   title: string;
   paragraphs: string[];
   bullets?: string[];
+  links?: { title: string; url: string }[];
 }
 
-/** Factual drafts. Publication readiness and effective dates belong in site configuration. */
-export const legalOwnerDecisions = [
-  'Confirm the legal operator name, location, and any required business or representative details. Discord @mngr06 is a supplied creator identity, not a confirmed legal identity.',
-  'Choose and verify a monitored privacy and support contact, a request-verification process, and response procedures. Discord availability has not been confirmed.',
-  'Confirm the actual website, DNS, proxy, backend hosting, monitoring, and backup providers, processing locations, administrator access, and international-transfer arrangements.',
-  'Set and implement separate retention schedules for account connections, upload records, rate-limit records, access/security logs, support messages, and backups. Upload records currently have no automatic age-based deletion.',
-  'Implement an authenticated procedure for deleting account-associated upload records and handling backups. Disconnect currently removes the connection record but retains upload history.',
-  'Review applicable privacy law, lawful bases, age/parental requirements, user rights, and required notices for the intended audience and jurisdiction.',
-  'Approve product terms, any software license, warranty and liability provisions, governing law, dispute procedures, and any required consumer protections with appropriate legal advice.',
-  'Confirm any future donation provider, verified destination, provider disclosures, transaction-data access, and retention before enabling support links.',
-  'Approve the final privacy policy and terms, set their effective dates and change-notice process, verify the live service behavior, and then change the centralized legal status from draft.',
-] as const;
+// Adoption and operating procedures belong in docs/LEGAL-READINESS.md.
+// Current scope: the static website, manual plugins, and voluntary support.
+const operator = site.legal.operatorName ? `${site.legal.operatorName} (${site.legal.operatorPublicName})` : site.legal.operatorPublicName;
 
 export const privacySections: LegalSection[] = [
   {
-    id: 'scope', title: 'Scope and draft status',
+    id: 'who', title: 'Who runs FrameForge',
     paragraphs: [
-      'This draft explains the inspected FrameForge implementation: its static website, Figma plugin, optional OAuth/upload service, and transfers to Roblox. Hosted account linking is prepared in source code; deployment and public availability have not been verified. The owner decisions below must be resolved before this becomes an effective policy.',
-      'The creator’s supplied contact identity is Discord @mngr06. A legal operator identity and monitored privacy contact have not been confirmed. This draft has no effective date.',
+      `FrameForge is independently maintained by ${operator}, based in ${site.legal.jurisdiction}. The maintainer is responsible for personal information received when you contact FrameForge. The platforms described below are responsible for their own processing under their policies.`,
+      'This notice covers the product website, the current Figma and Roblox Studio plugins, and voluntary support correspondence. FrameForge is free to use. There are no subscriptions, purchases, or enabled donation payments on this website.',
     ],
   },
   {
-    id: 'website', title: 'Public website',
+    id: 'website', title: 'When you visit the website',
     paragraphs: [
-      'The website provides product information and documentation. It does not receive Figma files, perform imports, provide a website account login, or collect payment details. The browser demonstration processes its example controls in your browser.',
-      'No third-party analytics, advertising, tracking embeds, or payment SDK are included by default. The site’s own code does not set tracking cookies or save Roblox authorization credentials in browser storage.',
-      'The website is prepared for GitHub Pages. When a GitHub Pages site is visited, GitHub logs visitors’ IP addresses for security purposes. GitHub’s privacy statement describes its processing. Actual deployment and any additional DNS, proxy, or hosting-provider processing must be confirmed before publication.',
+      'The website provides information, installation help, and plugin downloads. It has no website account, design-upload form, payment form, advertising, visitor analytics, or tracking embeds. The interactive example uses sample content and runs in your browser; it does not send your designs to FrameForge.',
+      'The website’s own code does not set cookies or save information in browser storage. Fonts and website assets are served with the site rather than loaded from a third-party font service.',
+      'GitHub Pages is the selected website host. GitHub receives the network information needed to serve pages and downloads, and states that it logs visitors’ IP addresses for security. Its privacy statement governs those host records; the FrameForge maintainer does not control their retention or deletion. Namecheap is the domain registrar.',
     ],
   },
   {
-    id: 'figma-storage', title: 'Figma plugin and local preferences',
+    id: 'plugins', title: 'Your designs and plugin settings',
     paragraphs: [
-      'FrameForge reads your selected layers to create the export and previews inside Figma. Exported JSON contains the design hierarchy, supported visual properties, configured interactions, diagnostics, and image mappings. You choose when to copy, download, or import it.',
-      'The plugin uses Figma client storage to remember export settings, image-to-Roblox asset mappings, and the automatic-upload preference. When linking is available and succeeds, it stores the configured service origin, an opaque FrameForge connection credential, and its expiry in private plugin client storage. Roblox access and refresh tokens are not stored there or included in exported JSON.',
-      'Configured layer behavior is saved as plugin metadata on the affected Figma nodes and can travel with the design. That metadata is distinct from private account storage. Figma operates its own platform and storage under its own privacy policy.',
+      'The Figma plugin reads your selected layers and creates an export inside Figma. The JSON can contain layer names, hierarchy, layout, supported properties, interactions, diagnostics, and image mappings. You decide when to copy or download it and import it into Studio. The current manual workflow does not send those exports or image files to the FrameForge maintainer.',
+      'Figma plugin storage remembers export settings, image-to-Roblox asset mappings, and your automatic-upload preference between sessions. Layer behavior is saved as metadata on Figma nodes and can travel with a shared design. The Studio plugin remembers its sizing preference in Studio settings.',
+      'When an image is needed, you download it, upload it to Roblox yourself, and map its asset ID. Figma and Roblox process information through their own platforms. Your exported files and uploaded assets remain under your control and those platforms’ rules; deleting a support message does not remove them.',
+      'The hosted Roblox account-linking and automatic-upload service is not live. This website does not collect Roblox passwords, OAuth tokens, account connections, or hosted upload histories. A separate notice and data-handling review are required before that service is enabled.',
     ],
   },
   {
-    id: 'account', title: 'Optional Roblox authorization',
+    id: 'support-data', title: 'When you contact the creator',
     paragraphs: [
-      'When the separate account service is available, you initiate linking inside Figma and review Roblox’s consent screen. FrameForge does not request your Roblox password. The implemented scopes are openid, profile, asset:read, and asset:write: they identify the authorized account, display its name, create requested image assets, and check upload operations.',
-      'The service obtains your Roblox user ID and a username or profile name, access and refresh tokens, token expiry, and authorization/session state. The saved OAuth snapshot, including identity and tokens, is encrypted on the server. Connection identifiers, their hashes, status, and deadlines also support binding the browser consent flow to the initiating plugin session.',
-      'These records support your requested connection and uploads, token refresh, access control, and safe retries. The implemented authorization flow uses PKCE, state checks, and browser binding. Encryption reduces exposure but does not make stored information anonymous or guarantee security.',
+      'If you email or send a Discord message, the maintainer receives your email address or Discord identity, message content, correspondence dates, and attachments you choose to include. A bug report may include your plugin version, export warnings, device information, and a small design example. This information comes from you; FrameForge does not purchase contact lists or collect it from your designs automatically.',
+      'Messages are used to answer your question, reproduce a problem, improve a reported feature, or handle a privacy request or complaint. Support is optional. You can use the website and manual plugin workflow without contacting the maintainer. Without enough information, a particular issue may be impossible to diagnose.',
+      'Send the smallest example needed, with other people’s personal information and private artwork removed where possible. Never send passwords, tokens, API keys, private connection credentials, identity documents, or payment details in a routine bug report.',
     ],
   },
   {
-    id: 'uploads', title: 'Exported images and upload records',
+    id: 'lawful-basis', title: 'Why support information is used',
     paragraphs: [
-      'If you request an image upload, the plugin sends its asset identifier, name, image type, and encoded PNG or JPEG bytes to the account service. The service validates the request, calculates an image hash, and sends the image and asset name to Roblox under the linked personal account. Native editable UI conversion remains inside the plugin.',
-      'The inspected application passes image bytes through memory and does not write uploaded image files to its database or disk. This does not establish the logging or backup practices of a future hosting provider.',
-      'The service persists records containing the Roblox creator ID, image hash, upload operation ID, creation status, result asset ID, moderation status, and relevant failure metadata. These records allow an interrupted request to resume checking its existing operation and help avoid duplicate uploads. Image hashes are linked to the account and are not treated as anonymous data.',
+      'Where the EU or UK GDPR applies, ordinary support correspondence is processed on the basis of legitimate interests: answering a message you initiated and maintaining a useful, reliable tool. Only information reasonably needed for that purpose should be used, with particular care for younger users and private designs. You can object as explained below.',
+      'Under Morocco’s Law 09-08, the corresponding support purpose relies on the legitimate-interest provision only where the processing is necessary and respects your interests and fundamental rights. Processing necessary to meet an applicable legal obligation has its separate legal basis. Other uses need an appropriate basis before they start.',
+      'Information needed to meet an applicable legal duty, including a valid data-rights request, is processed on the basis of that legal obligation. This does not permit unrelated uses of your correspondence.',
+      'FrameForge does not sell personal information, use support messages for advertising, or make automated decisions or profiles that have legal or similarly significant effects on you. Visiting the website is not treated as consent to marketing or unrelated processing.',
     ],
   },
   {
-    id: 'security-logs', title: 'Security processing and recipients',
+    id: 'recipients', title: 'Who handles information and where',
     paragraphs: [
-      'The backend uses account and network request limits to protect availability. The rate-limit table stores hashed bucket identifiers, counters, and reset times. Network buckets use the connection’s remote address; behind a proxy this may be the proxy address. The implementation does not trust user-supplied forwarded IP addresses.',
-      'Requested uploads are disclosed to Roblox. Figma provides the plugin environment and storage. A deployed service’s hosting, ingress, backup, and monitoring providers may process network requests, operational records, and logs. Their identities, locations, log contents, retention, and administrator access remain owner decisions.',
-      'The inspected backend has no request-body or token logging routine. Provider logging configuration must nevertheless exclude authorization headers, cookies, OAuth callback query parameters, image bodies, and private connection links. Support messages you choose to send through an external platform are also handled by that platform.',
+      'The maintainer receives support messages in Morocco. Google provides the Gmail mailbox, and Discord processes messages sent through Discord. GitHub hosts the website; Figma and Roblox provide their respective plugin environments. Their processing and retention are described in the linked policies. No FrameForge backend host, analytics service, or payment processor is active.',
+      'These platforms may process information outside your country, including outside the UK or European Economic Area. Sending a message to the maintainer also involves processing in Morocco. Provider policies describe their own international-processing arrangements; they do not establish a safeguard for every disclosure made by the maintainer.',
+      'Support attachments are not published or forwarded to another creator for troubleshooting without checking with you first. Information may be disclosed when required by applicable law. Before a disclosure requiring international-transfer safeguards, the required legal arrangement must be in place. You can ask about recipients, processing locations, and any applicable safeguard using the contact below.',
     ],
   },
   {
-    id: 'retention', title: 'Retention is different for each record',
+    id: 'retention', title: 'How long information is kept',
     paragraphs: [
-      'Pending connection requests and browser-flow cookies have a ten-minute validity. A successful connection is assigned a 90-day application validity period. Roblox token expiry and refresh rotation are separate from that period.',
-      'Expired connections and rate-limit rows are removed by the current pruning routine during new connection creation or rate-table capacity checks. Expiry immediately prevents use of the connection, but it does not promise physical deletion at that exact moment.',
-      'Upload records have no automatic age-based retention limit in the current code and are not removed when you disconnect. Hosting logs, support messages, and backups have no confirmed retention schedule. Their deletion rules and any justified legal retention must be set and implemented before hosted public operation.',
+      'Routine support correspondence is kept while resolving the issue and for up to 12 months after the last substantive reply, so related follow-up questions can be understood. A case with no substantive activity for 90 days is closed rather than retained indefinitely as unresolved. Design examples and attachments are removed from copies controlled by the maintainer within 30 days after resolution or closure. If you ask to continue investigating, only examples still needed for that work are kept.',
+      'A minimal record of a privacy request or complaint, its response, and the actions taken is kept for up to 24 months after closure to demonstrate how it was handled. If a specific legal requirement or unresolved dispute requires longer retention, only the necessary information is retained for that purpose and reviewed when the need ends.',
+      'These periods apply to copies controlled by the maintainer. The platforms may retain their own records or backups under their policies. The maintainer cannot promise to erase those independent records or your exported files. Plugin preferences and node metadata have no automatic age-based expiry in the current code.',
     ],
   },
   {
-    id: 'choices', title: 'Your choices and disconnection',
+    id: 'rights', title: 'Your privacy rights',
     paragraphs: [
-      'You can export and map image IDs manually without linking Roblox. You control the automatic-upload preference, can request individual or batch uploads, and can stop a batch after its current image. Existing mapped images are skipped.',
-      'Disconnect Roblox clears the plugin’s saved connection and asks the service to invalidate its connection record and revoke Roblox refresh authorization. If the service cannot be reached, local disconnection still happens and the plugin tells you to revoke FrameForge access in Roblox if needed. A failed network request cannot guarantee remote revocation.',
-      'Disconnecting does not delete uploaded Roblox assets, existing export files, saved image mappings, or retained upload-operation records. Manage published assets and app authorization through Roblox. A separate verified request procedure for retained FrameForge records is an owner requirement.',
+      'Depending on the law that applies, you can ask to see personal information held about you, correct it, delete it, or restrict its use. Data portability is available where its legal conditions are met. If processing relies on consent, you can withdraw it without changing the lawfulness of earlier processing.',
+      'You have the right to object to processing based on legitimate interests, including ordinary support correspondence. Explain your situation using either contact below. Processing must stop unless the applicable law permits a compelling overriding reason or use needed for legal claims.',
+      'Requests are normally free. Where EU or UK GDPR response rules apply, a response is due without undue delay and usually within one month. If an extension is legally permitted, you will be told within the initial month why it is needed and when to expect a response. Where Morocco’s Law 09-08 applies, access is provided without delay and necessary correction, deletion, or blocking of nonconforming data is subject to its ten-clear-day rule. Any shorter applicable deadline takes priority.',
+      'Only proportionate information should be requested to verify identity. Do not send an identity document unless it is needed and a suitable method has been agreed.',
     ],
   },
   {
-    id: 'rights', title: 'Privacy requests and younger users',
+    id: 'complaints', title: 'Requests and complaints',
     paragraphs: [
-      'Depending on the law that applies, you may have rights to access, correct, delete, restrict, object to, or receive a portable copy of personal information, and to complain to a relevant authority. These rights can have conditions and exceptions. The operator, applicable law, verification steps, and monitored request contact must be confirmed before this policy takes effect.',
-      'Do not send passwords, tokens, or unnecessary private design content in a support request. Follow the eligibility and parental requirements of Figma and Roblox. FrameForge-specific age safeguards and obligations have not yet been determined; this draft does not claim that third-party rules resolve them.',
+      `For a privacy request or complaint, email ${site.legal.contact} with “FrameForge privacy” in the subject, or contact ${site.legal.discord} directly on Discord. Say what you want checked and how you would prefer a reply. You do not need a special form. Discord is the creator’s preferred direct contact channel.`,
+      'Where the UK data-protection complaints rules apply, a complaint must be acknowledged within 30 days, investigated without undue delay, and followed by an explanation of the outcome and any action taken. This acknowledgement period is separate from the response deadline for a data-rights request.',
+      'You can complain to the relevant authority: the ICO in the UK, an EU/EEA supervisory authority such as the one where you live or work, or Morocco’s CNDP where Moroccan law applies. Contacting FrameForge first can help resolve a problem, but is not a condition of contacting an authority or exercising your legal rights.',
+    ],
+    links: [
+      { title: 'Raise a concern with the UK ICO', url: 'https://ico.org.uk/make-a-complaint/' },
+      { title: 'Find an EU/EEA data-protection authority', url: 'https://www.edpb.europa.eu/about-edpb/our-members_en' },
+      { title: 'Morocco’s data-protection authority: CNDP', url: 'https://www.cndp.ma/' },
     ],
   },
   {
-    id: 'third-parties', title: 'Roblox, external links, and future support payments',
+    id: 'younger-users', title: 'Younger users',
     paragraphs: [
-      'Roblox independently processes, stores, and moderates uploaded assets under its platform policies. Asset visibility and permission settings affect who can access them. FrameForge cannot promise removal from Roblox by removing its own connection records.',
-      'External links open the destination service, where that service’s privacy practices apply. Donations are disabled by default. If a verified external support provider is selected later, the policy must identify that provider, explain any transaction information received by the owner, and describe the relevant retention. This website does not collect card details.',
+      'Follow Figma’s and Roblox’s eligibility and parental-permission rules. If you are under 18, ask a parent or trusted adult before sharing personal information, a private design, or someone else’s details in a support message. FrameForge does not need your date of birth, school, address, or private photographs for an ordinary plugin issue.',
+      'In plain language: your design stays in the tools you use unless you choose to send an example to the creator. You can ask what the creator has received and ask for it to be deleted. A parent or guardian can help you. Any consent-based feature directed to children will need the safeguards and parental permission required by applicable law before it is introduced.',
     ],
   },
   {
-    id: 'changes', title: 'Changes and publication readiness',
+    id: 'privacy-changes', title: 'Changes to this notice',
     paragraphs: [
-      'The final policy must match the deployed configuration and operating practices, identify an effective date, and describe how material changes will be communicated. Changes to hosting, account linking, logs, support channels, or donations require another data-handling review. The current text remains a review draft until the listed owner decisions are resolved.',
+      'This notice will be reviewed before enabling hosted account linking, automatic uploading, payments, analytics, or another use of personal information. Material changes will be explained on the website with a new effective date before the new processing starts. Where a change requires consent or another legal step, publishing a notice alone is not enough.',
     ],
   },
 ];
 
 export const termsSections: LegalSection[] = [
   {
-    id: 'terms-status', title: 'Status and product scope',
+    id: 'free-project', title: 'A free, independent tool',
     paragraphs: [
-      'These are proposed terms for owner and legal review, with no effective date or confirmed legal contracting party. They are not presented as an approved agreement. The supplied creator identity is Discord @mngr06.',
-      'FrameForge helps convert selected Figma designs into editable Roblox UI through a Figma export and Roblox Studio import. The static website provides information and illustrative browser examples. Optional hosted account linking requires a separately deployed service and Roblox authorization; its public availability has not been verified.',
+      `FrameForge is independently maintained by ${operator}, based in ${site.legal.jurisdiction}. It is provided free of charge: no purchase or subscription is required. Donations and paid services are not enabled on this website.`,
+      'FrameForge helps convert selected Figma designs into real, editable Roblox UI through a Figma export and Studio import. The website provides information, installation help, downloads, and illustrative examples. It does not provide a website account or online conversion service.',
+      'These terms explain use of the website and official plugins. They do not impose a non-commercial-use restriction on the Roblox experiences you create. Your content and the third-party materials you use remain subject to their own permissions.',
     ],
   },
   {
-    id: 'limitations', title: 'Conversion and testing',
+    id: 'conversion', title: 'Review and test your conversion',
     paragraphs: [
-      'Conversion supports specific design properties and interactions. Some Figma features are approximated, unsupported, or require individual image assets; unavailable fonts can require fallbacks. Review export warnings and test generated objects, responsiveness, input behavior, and performance in Roblox Studio and Play mode before releasing an experience.',
-      'Examples demonstrate concepts and are not a guarantee that every design will look or behave identically. Roblox processing, moderation, platform limits, and asset permissions can delay or prevent use of an uploaded image.',
+      'FrameForge is currently an alpha. It supports specific layout properties and interactions; some Figma features need adjustment or an individual image fallback. An unavailable font can become an image rather than editable text. The goal is editable, responsive Roblox UI, but every Figma feature is not guaranteed to convert identically.',
+      'Read the export diagnostics, keep your original design, and test the generated objects in Studio and Play mode. Check screen sizes, input devices, interactions, accessibility, and performance before releasing an experience. Each import creates a new GUI rather than synchronising an existing one.',
+      'Roblox’s processing, moderation, asset permissions, and platform limits affect whether an image can be used. Website examples illustrate supported concepts rather than guaranteeing identical results for every design.',
     ],
   },
   {
-    id: 'content-rights', title: 'Your designs and permissions',
+    id: 'your-content', title: 'Your designs stay yours',
     paragraphs: [
-      'You retain your rights in the content you provide. Use designs, fonts, images, and other materials that you own or are authorized to process and publish. You are responsible for obtaining permissions required by their licenses and by the people whose information appears in them.',
-      'When you request an export or upload, you permit the processing, conversion, and transfer needed to carry out that request. Uploading to Roblox also invokes Roblox’s terms for those assets. This proposed processing permission does not transfer ownership of your designs to FrameForge or grant unrelated marketing rights.',
+      'FrameForge does not take ownership of your designs, exports, or generated UI. You may use the generated UI in personal or commercial projects when you have the necessary rights in its content.',
+      'Use designs, images, fonts, and other materials you own or have permission to convert and publish. Respect privacy and any conditions attached to those materials. Conversion does not remove a third party’s licence requirements.',
+      'Running an export permits the processing needed for that conversion in the plugin. If you send a support example, the maintainer may use it only to handle that request as described in the privacy notice. This does not give FrameForge permission to sell your design, publish it as a showcase, or use it for marketing.',
     ],
   },
   {
-    id: 'account-terms', title: 'Account linking and uploads',
+    id: 'installation', title: 'Downloads and manual uploads',
     paragraphs: [
-      'Authorize an account you are permitted to use and review Roblox’s consent screen. The implemented hosted flow uploads to the linked personal Roblox account. Confirm the displayed account before uploading. Keep private connection credentials secure and never share access tokens, client secrets, encryption keys, or pairing codes.',
-      'Automatic uploading is a user-controlled preference. Already mapped images are skipped. A pending or uncertain operation may require checking the existing Roblox upload rather than creating a new copy. Do not use a different account or credential to evade permissions, moderation, or limits.',
+      'Use the official FrameForge download or a verified listing linked by this website. The Studio plugin can be installed from its published file when a Creator Store listing is unavailable. Follow the installation guide and avoid running duplicate copies.',
+      'In the current workflow, you upload required images to Roblox yourself and enter their asset IDs in FrameForge. Use an account you are permitted to use and follow Roblox’s asset rules. Keep private credentials and design files secure.',
+      'Hosted Roblox account linking and automatic uploading are not live. Their privacy information, permissions, and any additional terms must be reviewed and supplied before they become available. No Roblox password or connection is needed to use the website.',
     ],
   },
   {
-    id: 'acceptable-use', title: 'Acceptable use',
-    paragraphs: ['Use FrameForge in accordance with applicable law and the rules of the platforms you use.'],
+    id: 'acceptable-use', title: 'Use FrameForge responsibly',
+    paragraphs: ['Use the website and plugins in accordance with applicable law and the relevant platform rules.'],
     bullets: [
-      'Do not upload unlawful, infringing, deceptive, or harmful content, or expose personal information without an appropriate permission basis.',
-      'Do not attempt to access someone else’s connection, interfere with the service, bypass security checks, or evade request limits.',
-      'Do not imply that your content or FrameForge is officially endorsed by Roblox, Figma, or another rights holder.',
+      'Do not process or publish content that infringes someone else’s rights or unlawfully exposes personal information.',
+      'Do not use FrameForge to distribute harmful code, interfere with another person’s access, or bypass platform security, permissions, or moderation.',
+      'Do not represent FrameForge or your generated content as officially endorsed by Roblox, Figma, or another rights holder without their permission.',
     ],
   },
   {
-    id: 'third-party-terms', title: 'Third-party platforms and independence',
+    id: 'platforms', title: 'Figma, Roblox, and other platforms',
     paragraphs: [
-      'FrameForge is an independent tool and is not affiliated with, endorsed by, or sponsored by Roblox or Figma.',
-      'Figma, Roblox, GitHub, and any external destination operate their services under their own terms and policies. Their availability, API behavior, account restrictions, moderation, and asset access remain outside FrameForge’s control. Use their names descriptively and comply with any applicable brand rules.',
+      site.independence,
+      'Figma, Roblox, GitHub, and external destinations operate under their own terms. Changes to their APIs, account permissions, moderation, or availability can affect FrameForge. The maintainer will explain known compatibility changes through the guide or release notes where practical.',
+      'Review an external service’s terms and privacy information when you use it.',
     ],
   },
   {
-    id: 'disconnect-terms', title: 'Disconnection and stored information',
+    id: 'support', title: 'Support and stopping use',
     paragraphs: [
-      'You can stop using the plugin and disconnect Roblox in its settings. The plugin removes its saved connection and requests server invalidation and Roblox revocation. When the service is unreachable, revoke FrameForge access through Roblox as needed.',
-      'Disconnection does not remove uploaded Roblox assets, your downloaded exports, image mappings, or retained upload-operation records. The privacy draft explains current handling and the retention and deletion procedures that still require owner approval.',
+      `For a plugin issue, contact ${site.legal.discord} on Discord. Professional inquiries and privacy requests can also be sent to ${site.legal.contact}. Send your version, reproduction steps, and the smallest example you have permission to share, with private information and secrets removed.`,
+      'This is an independently maintained project. Routine technical support has no guaranteed response time or service-level agreement. This does not alter an applicable deadline for a privacy request or complaint, or remove legal rights you have.',
+      'You can stop using or uninstall the plugins without a FrameForge cancellation fee. Your generated UI, downloaded exports, and Roblox assets are not removed by stopping use. Plugin settings and Figma node metadata may remain in their platform storage; uninstalling does not guarantee their deletion.',
     ],
   },
   {
-    id: 'support-changes', title: 'Support and product changes',
+    id: 'software-brand', title: 'Software and branding',
     paragraphs: [
-      'The supplied creator contact identity is Discord @mngr06; a monitored support channel and response commitments have not been confirmed. When reporting an issue, share the smallest reproducible example and relevant warnings, with secrets and private information removed.',
-      'Compatibility and features can change as the product and third-party platforms evolve. Keep a copy of your design and export, review update notes when provided, and retest generated UI. No uptime, support-response, or compatibility service-level agreement has been chosen.',
+      'You may use the official plugins for their intended design-conversion purpose free of charge. This permission is separate from ownership of your designs and generated UI.',
+      'FrameForge branding and website materials remain subject to their owners’ rights. These terms do not grant permission to redistribute FrameForge source code or plugin packages, or to use its name or logo to imply endorsement. An expressly published software licence or separate permission governs broader rights. Third-party notices apply to the materials they identify.',
     ],
   },
   {
-    id: 'payments', title: 'Optional project support',
+    id: 'legal-rights', title: 'Your legal rights',
     paragraphs: [
-      'External support payments are disabled by default. If the owner later enables a verified external support page, contributions are optional and governed by that provider’s terms. The website will not collect payment details.',
-      'No subscription, paid access entitlement, commercial software license, refund commitment, charitable status, or tax deductibility is established by this draft. Any future paid offering requires its own approved terms and disclosures.',
+      'These terms describe the tool’s capabilities and practical limits. They do not exclude mandatory rights or remedies under applicable law, including EU, UK, or other consumer and data-protection rights that apply to your situation. Free access does not by itself remove those protections.',
+      'Nothing in these terms excludes or limits liability where doing so would be unlawful, including liability for fraud, fraudulent misrepresentation, or death or personal injury caused by negligence.',
+      'Contact the maintainer if something goes wrong. You remain free to seek advice, contact the relevant authority, or pursue a remedy through a court with jurisdiction under applicable law. These terms do not require arbitration or require you to give up protections that apply where you live.',
     ],
   },
   {
-    id: 'ip', title: 'FrameForge branding and other materials',
+    id: 'terms-changes', title: 'Updates and changes',
     paragraphs: [
-      'User-content rights, FrameForge branding, software licensing, and third-party asset licenses are separate. A copyright footer does not grant a software license or permission to reuse a brand or third-party asset. Consult the asset register and Credits for the provenance of website materials.',
-      'No new open-source or commercial license is granted by these website terms. Redistribution rights for source code or plugins must follow an expressly approved license or permission.',
-    ],
-  },
-  {
-    id: 'legal-review', title: 'Warranties, liability, disputes, and changes',
-    paragraphs: [
-      'Warranty language, liability limits, consumer protections, governing law, dispute procedures, eligibility requirements, the operator identity, and notice methods remain owner and legal decisions. This draft does not invent a liability cap, jurisdiction, arbitration requirement, or waiver of mandatory rights.',
-      'Before adopting terms, the owner must approve those provisions, confirm that the product behavior and contact details are accurate, and set an effective date and a process for communicating material changes. The listed owner decisions remain visible while these documents are drafts.',
+      'Updates may address bugs, security, applicable legal requirements, or compatibility with specific Figma and Roblox changes. Material changes to these terms or supported features will be explained on the website or in release notes in advance where practical. Urgent security or legal changes may need to happen sooner; their reason will still be explained.',
+      'Updated terms apply from their stated effective date. They do not retrospectively change rights you have already acquired. If you do not want to continue under an update, you can stop using FrameForge without charge. Keep your design and export backups and review release notes before installing a new version.',
+      'A future paid offering or donation facility would need clear information and appropriate terms before being enabled.',
     ],
   },
 ];
 
-export const legalSources = [
-  { title: 'GitHub Pages data collection', url: 'https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages' },
+export const privacySources = [
+  { title: 'GitHub Pages: visitor IP logging', url: 'https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages' },
   { title: 'GitHub Privacy Statement', url: 'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement' },
+  { title: 'Google Privacy Policy (Gmail)', url: 'https://policies.google.com/privacy' },
+  { title: 'Discord Privacy Policy', url: 'https://discord.com/privacy' },
+  { title: 'Namecheap Privacy Policy', url: 'https://www.namecheap.com/legal/general/privacy-policy/' },
   { title: 'Figma Privacy Policy', url: 'https://www.figma.com/legal/privacy/' },
   { title: 'Roblox Privacy and Cookie Policy', url: 'https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy' },
-  { title: 'ICO guide to individual rights', url: 'https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/' },
-] as const;
+];
+
+export const termsSources = [
+  { title: 'Figma Terms of Service', url: 'https://www.figma.com/legal/tos/' },
+  { title: 'Roblox Terms of Use', url: 'https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use' },
+];

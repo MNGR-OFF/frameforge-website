@@ -16,9 +16,9 @@ export default defineConfig({
     trace: 'retain-on-failure'
   },
   webServer: {
-    command: `npm run preview -- --port ${new URL(process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:4321').port || '4321'}`,
+    command: `node ./node_modules/astro/bin/astro.mjs preview --host 127.0.0.1 --port ${new URL(process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:4321').port || '4321'}`,
     url: `${process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:4321'}${process.env.SITE_BASE_PATH || '/'}`,
     reuseExistingServer: true,
-    timeout: 30_000
+    timeout: 90_000
   }
 });

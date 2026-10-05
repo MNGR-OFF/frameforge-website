@@ -11,7 +11,7 @@ Verified locally on October 5, 2026. The website is implemented in `website/`; e
 - Static production output in `website/dist/`, plus a separate project-path verification build in ignored `website/verification/project-dist/`.
 - GitHub Actions build/check/deploy workflow, Namecheap domain instructions, asset register, data-handling audit, and Roblox OAuth review preparation.
 - Impeccable design review and source-derived handoff in `PRODUCT.md`, `DESIGN.md`, `docs/DESIGN-DIRECTION.md`, and `.impeccable/design.json`.
-- Privacy and terms **review drafts** with explicit owner decisions. They are excluded from the sitemap and marked noindex while unresolved. The publication check intentionally rejects this state.
+- Privacy and terms **review drafts** with explicit owner decisions. They are excluded from the sitemap and marked noindex while unresolved. The publication check allows the current static website with this honest status and requires completed decisions before presenting policies as adopted.
 
 ## Checks and evidence
 
@@ -54,10 +54,10 @@ Product claims were checked against README, release notes, limitations, behavior
 
 The website's Studio file is byte-identical to `dist/FrameForge.rbxmx` and the model in the combined and Roblox 0.1.7 release ZIPs. Its SHA-256 is `53f3ac43f29868c2006fdace12a9f4b237b84fcdb1980b1aa8833fd2aeb20347`. Static inspection found no credentials, outbound HTTP requests, backend origins, numeric asset requires, or `loadstring`. No new live Studio import was performed for this website work.
 
-## Still needed before launch
+## Remaining deployment and operating work
 
-1. Confirm the public operator identity, monitored privacy contact, jurisdiction, actual providers, separate retention/deletion/log/backup practices, and legal provisions. Approve the policy text and effective date.
-2. Select/configure the actual GitHub repository and Pages settings. Follow the documented Namecheap DNS/HTTPS steps after the owner's authorization; current DNS is registrar parking.
+1. For policy adoption and actual support processing, finish current-scope operator-identification/provider/legal-formality review, implement the rights/complaints routine, and adopt the policy/effective date. The owner supplied MNGR (@mngr06), Morocco and contacts, and accepted monitoring/retention commitments. The static website can publish with clearly labelled drafts; future backend records have separate launch requirements.
+2. Select GitHub Actions as Pages Source for MNGR-OFF/frameforge-website, push the prepared changes, and publish the verified artifact through the manual workflow. The current draft configuration passes publication checks. The latest DNS/HTTPS check is now correct; the automatic Jekyll run failed and the live domain serves GitHub's 404.
 3. Confirm the official Figma listing and any future Roblox store destination. The Studio file fallback already works locally and in the prepared build.
 4. Deploy the OAuth/upload backend separately, configure its actual HTTPS callback and the Figma build origin, and test real consent, uploads, mapping reuse, restart/reconnect, cancellation, and revocation. Complete Roblox review before claiming public linking availability.
 5. Resolve any future donation provider and policy details before enabling the hidden donation component.
@@ -70,4 +70,22 @@ The first public GitHub Actions run on October 5, 2026 built the site successful
 
 Windows Git checkout also converted line endings in the compiled Studio model. Restored the original 358,399-byte file and added a scoped `.gitattributes` rule to preserve its release SHA-256 exactly. Restored the ignored development files omitted by browser upload. Updated the image-build utility Sharp to 0.35.5; the dependency audit now reports zero vulnerabilities, and its 1200 × 630 image metadata check passed.
 
-A fresh locked installation in the standalone GitHub Desktop clone passes both production and project-path builds, Astro diagnostics, and static verification. All nine browser tests also pass against that clone's production preview on port 4323, including the actual plugin download hash. These changes await commit and push before the GitHub runner can verify them. Public deployment and policy approval remain pending.
+A fresh locked installation in the standalone GitHub Desktop clone passes both production and project-path builds, Astro diagnostics, and static verification. All nine browser tests also pass against that clone's production preview on port 4323, including the actual plugin download hash. The owner committed and pushed these fixes as bbe6bf3; GitHub run 37336489412 passed build and project-path-check, with deployment correctly skipped for a push. Public deployment and policy adoption remain pending.
+
+## Current-scope legal rewrite
+
+Rewrote Privacy and Terms around the free static website, manual plugins and voluntary support. Added owner-supplied MNGR (@mngr06), Morocco and email, narrowly described plugin settings and current data handling, preserved applicable EU/UK mandatory rights, and included relevant Moroccan request handling. Detailed inactive-backend inventory remains in maintainer documents. No legal-compliance guarantee or CNDP approval is claimed.
+
+Owner explicitly accepted checking email/Discord every two days and the support/attachment/request-record retention schedule. Readiness records those commitments rather than asserting observed past deletions. Policy adoption and operating checks remain pending, while static publication with clearly labelled drafts is supported. Future backend requirements apply only if enabled.
+
+Both root custom-domain and `/frameforge-preview/` builds pass Astro diagnostics (33 files, zero errors/warnings/hints) and static checks: nine routes, 318 local references, 15 HTTPS destinations, 4,766 bytes client JavaScript. Configured email links are separately checked; isolated negative checks reject a substituted recipient and an added BCC header. The final browser run passes all nine tests (53.7s), including all-route axe checks and no-JavaScript navigation. Desktop/mobile Privacy and Terms screenshots and section-link/contact checks are retained in ignored `verification/`; no overflow was found at 390px or 1440px. These are functional checks, not legal certification.
+
+Final review also fixed impossible-date acceptance in the publication gate, external CSS URL/import detection, the HTML route count after legal adoption, and documentation paths absent from the website-only clone. Isolated in-memory date cases accept a real leap date and reject missing/non-leap/impossible dates without changing the real policy status; isolated output checks reject external CSS URLs/imports. Browser verification now invokes the pinned Astro CLI directly rather than requiring npm on the child process PATH and allows 90 seconds for cold startup; its managed server started successfully and shut down after the passing run. Latest dependency audit: zero reported vulnerabilities. Eleven of fifteen external destinations returned 200; four platform pages blocked automated GETs with 403 rather than indicating a broken public link.
+
+The earlier universal legal deployment gate exceeded the brief's requirement to distinguish drafts from adopted policies. It now permits the current static website without changing any unfinished review flag. Configuration checks accept the actual draft state and a synthetic fully adopted state, and reject an impossible effective date, misleading draft status, hosted linking with drafts, and donations with drafts. Isolated output checks reject missing draft labels, missing noindex metadata, and a fabricated effective date. These checks verify honest configuration and output, not regulatory approval.
+
+Removed robots.txt crawl restrictions on draft policies while retaining their noindex metadata and sitemap exclusion: crawlers need access to read noindex, as [Google's indexing guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing) explains. Static verification rejects crawl restrictions that would interfere with this. Account-page launch wording now refers specifically to hosted linking.
+
+## Updated live domain observation
+
+The owner configured Namecheap DNS. A fresh read-only check on October 5, 2026 found the four correct GitHub A records, `www` CNAME `mngr-off.github.io`, and valid HTTPS for both names through January 3, 2027. The site currently returns GitHub 404, with HTTP/www/project URL redirecting to the HTTPS apex. Automatic Jekyll run 37337762060 failed, separate from the earlier successful Astro checks. Select GitHub Actions as Pages Source; no further DNS replacement is justified by the observed records. Authenticated settings, a new push and actual publication remain unverified.

@@ -63,7 +63,7 @@ const current = Astro.url.pathname;
     <footer class="site-footer">
       <div class="footer-top container">
         <div><a class="brand" href={localUrl()}><img src={localUrl('assets/frameforge-logo.png')} width="114" height="84" alt="" /><span>Frame<span class="brand-light">Forge</span><span class="brand-period">.</span></span></a><p>Design in Figma.<br />Forge it into Roblox.</p><p class="creator">{site.creator}</p></div>
-        <nav aria-label="Footer navigation"><a href={localUrl('guide/')}>Guide</a><a href={localUrl('account/')}>Account linking</a><a href={localUrl('support/')}>Support</a><a href={localUrl('changelog/')}>Changelog</a><a href={localUrl('privacy/')}>Privacy <span class="draft-label">draft</span></a><a href={localUrl('terms/')}>Terms <span class="draft-label">draft</span></a><a href={localUrl('credits/')}>Credits</a></nav>
+        <nav aria-label="Footer navigation"><a href={localUrl('guide/')}>Guide</a><a href={localUrl('account/')}>Account linking</a><a href={localUrl('support/')}>Support</a><a href={localUrl('changelog/')}>Changelog</a><a href={localUrl('privacy/')}>Privacy {!site.legal.publicationReady && <span class="draft-label">draft</span>}</a><a href={localUrl('terms/')}>Terms {!site.legal.publicationReady && <span class="draft-label">draft</span>}</a><a href={localUrl('credits/')}>Credits</a></nav>
         <div class="footer-note"><p>Real layers. Room to build.</p><InstallActions compact /><Donation /></div>
       </div>
       <div class="footer-bottom container"><p>{site.independence}</p><span>FRAMEFORGE / {site.version} ALPHA</span></div>
