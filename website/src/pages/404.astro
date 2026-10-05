@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { localUrl } from '../data/site';
+---
+<Layout title="Page not found" noindex calm><section class="not-found container"><h1>This frame<br />is missing<span class="accent">.</span></h1><p>404 · The page may have moved, or the address may need another look.</p><a class="button primary" href={localUrl()}>Back to the forge</a><a class="button secondary" href={localUrl('guide/')}>Open the guide</a></section></Layout>

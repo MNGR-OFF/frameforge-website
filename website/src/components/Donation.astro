@@ -1,0 +1,8 @@
+---
+import { site, safeExternalUrl } from '../data/site';
+const settings = site.donations;
+const enabled = settings.donationsEnabled && settings.verified && Boolean(settings.donationUrl && settings.donationProvider);
+const href = enabled ? safeExternalUrl(settings.donationUrl) : null;
+if (settings.donationsEnabled && !href) throw new Error('Donation settings require a verified URL and provider.');
+---
+{href && <aside class="donation"><a class="button secondary" href={href} target="_blank" rel="noopener noreferrer">{settings.donationLabel}</a><p>Optional support through {settings.donationProvider}. It does not buy access, a license, or a subscription and is not represented as tax-deductible.</p></aside>}
