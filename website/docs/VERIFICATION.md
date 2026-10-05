@@ -63,3 +63,11 @@ The website's Studio file is byte-identical to `dist/FrameForge.rbxmx` and the m
 5. Resolve any future donation provider and policy details before enabling the hidden donation component.
 
 Prepared source and static output are complete for review. Public launch and legal effectiveness remain separate owner decisions.
+
+## Standalone repository follow-up
+
+The first public GitHub Actions run on October 5, 2026 built the site successfully but failed type checking. A clean isolated reproduction found missing Node type definitions: the initial plugin-project checkout had supplied them from its parent dependencies. Added `@types/node` 24.19.1 directly to the website's development dependencies and lockfile; no compiler-setting change was needed.
+
+Windows Git checkout also converted line endings in the compiled Studio model. Restored the original 358,399-byte file and added a scoped `.gitattributes` rule to preserve its release SHA-256 exactly. Restored the ignored development files omitted by browser upload. Updated the image-build utility Sharp to 0.35.5; the dependency audit now reports zero vulnerabilities, and its 1200 × 630 image metadata check passed.
+
+A fresh locked installation in the standalone GitHub Desktop clone passes both production and project-path builds, Astro diagnostics, and static verification. All nine browser tests also pass against that clone's production preview on port 4323, including the actual plugin download hash. These changes await commit and push before the GitHub runner can verify them. Public deployment and policy approval remain pending.

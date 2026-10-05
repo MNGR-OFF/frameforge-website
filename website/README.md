@@ -4,7 +4,7 @@ Astro static output, TypeScript, and CSS live independently of the working plugi
 
 ## Develop and verify
 
-Use Node.js 24; the package requires at least Node 22.12. From this directory:
+Use Node.js 24; the package requires at least Node 22.12. Node type definitions are a direct website development dependency, so checks also work in a standalone clone. The repository's `.gitattributes` preserves the Studio download's exact bytes across Windows and Linux. From this directory:
 
 ```sh
 npm ci

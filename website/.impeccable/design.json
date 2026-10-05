@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T13:42:10.929Z",
+  "title": "Design System: FrameForge",
+  "extensions": {
+    "colorMeta": {
+      "ember": {
+        "role": "primary",
+        "displayName": "Ember",
+        "tonalRamp": [
+          "oklch(0.1500 0.1822 46.04)",
+          "oklch(0.2643 0.1822 46.04)",
+          "oklch(0.3786 0.1822 46.04)",
+          "oklch(0.4929 0.1822 46.04)",
+          "oklch(0.6071 0.1822 46.04)",
+          "oklch(0.7214 0.1822 46.04)",
+          "oklch(0.8357 0.1822 46.04)",
+          "oklch(0.9500 0.1822 46.04)"
+        ]
+      },
+      "hover": {
+        "role": "primary",
+        "displayName": "Ember Hover",
+        "tonalRamp": [
+          "oklch(0.1500 0.1551 49.64)",
+          "oklch(0.2643 0.1551 49.64)",
+          "oklch(0.3786 0.1551 49.64)",
+          "oklch(0.4929 0.1551 49.64)",
+          "oklch(0.6071 0.1551 49.64)",
+          "oklch(0.7214 0.1551 49.64)",
+          "oklch(0.8357 0.1551 49.64)",
+          "oklch(0.9500 0.1551 49.64)"
+        ]
+      },
+      "pressed": {
+        "role": "primary",
+        "displayName": "Ember Pressed",
+        "tonalRamp": [
+          "oklch(0.1500 0.1751 44.83)",
+          "oklch(0.2643 0.1751 44.83)",
+          "oklch(0.3786 0.1751 44.83)",
+          "oklch(0.4929 0.1751 44.83)",
+          "oklch(0.6071 0.1751 44.83)",
+          "oklch(0.7214 0.1751 44.83)",
+          "oklch(0.8357 0.1751 44.83)",
+          "oklch(0.9500 0.1751 44.83)"
+        ]
+      },
+      "warm": {
+        "role": "primary",
+        "displayName": "Warm Ember",
+        "tonalRamp": [
+          "oklch(0.1500 0.1089 52.94)",
+          "oklch(0.2643 0.1089 52.94)",
+          "oklch(0.3786 0.1089 52.94)",
+          "oklch(0.4929 0.1089 52.94)",
+          "oklch(0.6071 0.1089 52.94)",
+          "oklch(0.7214 0.1089 52.94)",
+          "oklch(0.8357 0.1089 52.94)",
+          "oklch(0.9500 0.1089 52.94)"
+        ]
+      },
+      "obsidian": {
+        "role": "neutral",
+        "displayName": "Obsidian",
+        "tonalRamp": [
+          "oklch(0.1500 0.0124 254.17)",
+          "oklch(0.2643 0.0124 254.17)",
+          "oklch(0.3786 0.0124 254.17)",
+          "oklch(0.4929 0.0124 254.17)",
+          "oklch(0.6071 0.0124 254.17)",
+          "oklch(0.7214 0.0124 254.17)",
+          "oklch(0.8357 0.0124 254.17)",
+          "oklch(0.9500 0.0124 254.17)"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Steel",
+        "tonalRamp": [
+          "oklch(0.1500 0.0287 265.24)",
+          "oklch(0.2643 0.0287 265.24)",
+          "oklch(0.3786 0.0287 265.24)",
+          "oklch(0.4929 0.0287 265.24)",
+          "oklch(0.6071 0.0287 265.24)",
+          "oklch(0.7214 0.0287 265.24)",
+          "oklch(0.8357 0.0287 265.24)",
+          "oklch(0.9500 0.0287 265.24)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Clear Text",
+        "tonalRamp": [
+          "oklch(0.1500 0.0091 258.34)",
+          "oklch(0.2643 0.0091 258.34)",
+          "oklch(0.3786 0.0091 258.34)",
+          "oklch(0.4929 0.0091 258.34)",
+          "oklch(0.6071 0.0091 258.34)",
+          "oklch(0.7214 0.0091 258.34)",
+          "oklch(0.8357 0.0091 258.34)",
+          "oklch(0.9500 0.0091 258.34)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Steel",
+        "tonalRamp": [
+          "oklch(0.1500 0.0271 261.13)",
+          "oklch(0.2643 0.0271 261.13)",
+          "oklch(0.3786 0.0271 261.13)",
+          "oklch(0.4929 0.0271 261.13)",
+          "oklch(0.6071 0.0271 261.13)",
+          "oklch(0.7214 0.0271 261.13)",
+          "oklch(0.8357 0.0271 261.13)",
+          "oklch(0.9500 0.0271 261.13)"
+        ]
+      },
+      "surface-start": {
+        "role": "neutral",
+        "displayName": "Graphite Surface Start",
+        "tonalRamp": [
+          "oklch(0.1500 0.0199 258.35)",
+          "oklch(0.2643 0.0199 258.35)",
+          "oklch(0.3786 0.0199 258.35)",
+          "oklch(0.4929 0.0199 258.35)",
+          "oklch(0.6071 0.0199 258.35)",
+          "oklch(0.7214 0.0199 258.35)",
+          "oklch(0.8357 0.0199 258.35)",
+          "oklch(0.9500 0.0199 258.35)"
+        ]
+      },
+      "surface-end": {
+        "role": "neutral",
+        "displayName": "Graphite Surface End",
+        "tonalRamp": [
+          "oklch(0.1500 0.0180 259.71)",
+          "oklch(0.2643 0.0180 259.71)",
+          "oklch(0.3786 0.0180 259.71)",
+          "oklch(0.4929 0.0180 259.71)",
+          "oklch(0.6071 0.0180 259.71)",
+          "oklch(0.7214 0.0180 259.71)",
+          "oklch(0.8357 0.0180 259.71)",
+          "oklch(0.9500 0.0180 259.71)"
+        ]
+      },
+      "secondary-hover": {
+        "role": "neutral",
+        "displayName": "Lifted Graphite",
+        "tonalRamp": [
+          "oklch(0.1500 0.0249 258.35)",
+          "oklch(0.2643 0.0249 258.35)",
+          "oklch(0.3786 0.0249 258.35)",
+          "oklch(0.4929 0.0249 258.35)",
+          "oklch(0.6071 0.0249 258.35)",
+          "oklch(0.7214 0.0249 258.35)",
+          "oklch(0.8357 0.0249 258.35)",
+          "oklch(0.9500 0.0249 258.35)"
+        ]
+      },
+      "prose-text": {
+        "role": "neutral",
+        "displayName": "Reading Steel",
+        "tonalRamp": [
+          "oklch(0.1500 0.0233 260.72)",
+          "oklch(0.2643 0.0233 260.72)",
+          "oklch(0.3786 0.0233 260.72)",
+          "oklch(0.4929 0.0233 260.72)",
+          "oklch(0.6071 0.0233 260.72)",
+          "oklch(0.7214 0.0233 260.72)",
+          "oklch(0.8357 0.0233 260.72)",
+          "oklch(0.9500 0.0233 260.72)"
+        ]
+      },
+      "notice-bg": {
+        "role": "neutral",
+        "displayName": "Warm Notice Ground",
+        "tonalRamp": [
+          "oklch(0.1500 0.0088 43.08)",
+          "oklch(0.2643 0.0088 43.08)",
+          "oklch(0.3786 0.0088 43.08)",
+          "oklch(0.4929 0.0088 43.08)",
+          "oklch(0.6071 0.0088 43.08)",
+          "oklch(0.7214 0.0088 43.08)",
+          "oklch(0.8357 0.0088 43.08)",
+          "oklch(0.9500 0.0088 43.08)"
+        ]
+      },
+      "notice-border": {
+        "role": "neutral",
+        "displayName": "Warm Notice Border",
+        "tonalRamp": [
+          "oklch(0.1500 0.0560 51.23)",
+          "oklch(0.2643 0.0560 51.23)",
+          "oklch(0.3786 0.0560 51.23)",
+          "oklch(0.4929 0.0560 51.23)",
+          "oklch(0.6071 0.0560 51.23)",
+          "oklch(0.7214 0.0560 51.23)",
+          "oklch(0.8357 0.0560 51.23)",
+          "oklch(0.9500 0.0560 51.23)"
+        ]
+      },
+      "notice-text": {
+        "role": "neutral",
+        "displayName": "Warm Notice Text",
+        "tonalRamp": [
+          "oklch(0.1500 0.0361 57.51)",
+          "oklch(0.2643 0.0361 57.51)",
+          "oklch(0.3786 0.0361 57.51)",
+          "oklch(0.4929 0.0361 57.51)",
+          "oklch(0.6071 0.0361 57.51)",
+          "oklch(0.7214 0.0361 57.51)",
+          "oklch(0.8357 0.0361 57.51)",
+          "oklch(0.9500 0.0361 57.51)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Homepage Display",
+        "purpose": "Homepage hero headline."
+      },
+      "document-display": {
+        "displayName": "Document Display",
+        "purpose": "Direct route document titles."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Major home section headings."
+      },
+      "title": {
+        "displayName": "Component Title",
+        "purpose": "Base component heading with local size overrides."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "General descriptions."
+      },
+      "prose": {
+        "displayName": "Reading Prose",
+        "purpose": "Long documents with increased line-height."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Primary and secondary button labels."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Main navigation links."
+      },
+      "metadata": {
+        "displayName": "Technical Metadata",
+        "purpose": "Versions and technical information, not decorative kickers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "action-glow",
+        "value": "0 0 25px rgb(255 122 47 / 9%)",
+        "purpose": "Primary actions."
+      },
+      {
+        "name": "workbench-lift",
+        "value": "0 26px 60px rgb(0 0 0 / 25%)",
+        "purpose": "Conversion exhibit."
+      },
+      {
+        "name": "illustration-window-lift",
+        "value": "0 12px 30px rgb(0 0 0 / 25%)",
+        "purpose": "Nested source and hierarchy windows."
+      },
+      {
+        "name": "demo-lift",
+        "value": "0 8px 20px rgb(0 0 0 / 25%)",
+        "purpose": "Masked demonstration button."
+      },
+      {
+        "name": "menu-lift",
+        "value": "0 12px 40px rgb(0 0 0 / 35%)",
+        "purpose": "Open mobile menu."
+      }
+    ],
+    "motion": [
+      {
+        "name": "action-transition",
+        "value": "transform .2s, background .2s, border-color .2s",
+        "purpose": "Button state feedback."
+      },
+      {
+        "name": "brand-transition",
+        "value": "transform .25s",
+        "purpose": "Small supplied-logo rotation on hover or focus."
+      },
+      {
+        "name": "demo-tilt",
+        "value": "transform .32s ease",
+        "purpose": "Hover and focus apply adjustable 2D rotation."
+      },
+      {
+        "name": "demo-stripes",
+        "value": "transform .45s ease",
+        "purpose": "Inner stripe movement behind a fixed mask."
+      },
+      {
+        "name": "forge-cadence",
+        "value": "7s ease-in-out infinite",
+        "purpose": "Conversion illustration, gated by visibility, user pause, and reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1441px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "850px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "580px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ember installation and download actions.",
+      "html": "<a href=\"#\" class=\"ds-button-primary\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v16m-6-6 6 6 6-6\"/></svg> Download FrameForge</a>",
+      "css": ".ds-button-primary { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; padding: .8rem 1.3rem; min-height: 48px; border: 1px solid var(--steel, #2A3140); border-radius: 5px; font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); font-size: .875rem; line-height: 1.65; font-weight: 650; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; } .ds-button-primary svg { width: 1.15em; height: 1.15em; } .ds-button-primary:hover { transform: translateY(-2px); } .ds-button-primary:active { transform: translateY(0); } .ds-button-primary:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; } @media (prefers-reduced-motion: reduce) { .ds-button-primary { transition: none; } } .ds-button-primary { background: var(--ember, #FF7A2F); color: var(--obsidian, #0B0F14); border-color: var(--ember, #FF7A2F); box-shadow: 0 0 25px rgb(255 122 47 / 9%); } .ds-button-primary:hover { background: var(--hover, #FF914F); border-color: var(--hover, #FF914F); } .ds-button-primary:active { background: var(--pressed, #E96A25); }"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Dark filled companion actions with steel outlines.",
+      "html": "<a href=\"#\" class=\"ds-button-secondary\">Download Studio plugin</a>",
+      "css": ".ds-button-secondary { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; padding: .8rem 1.3rem; min-height: 48px; border: 1px solid var(--steel, #2A3140); border-radius: 5px; font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); font-size: .875rem; line-height: 1.65; font-weight: 650; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; } .ds-button-secondary svg { width: 1.15em; height: 1.15em; } .ds-button-secondary:hover { transform: translateY(-2px); } .ds-button-secondary:active { transform: translateY(0); } .ds-button-secondary:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; } @media (prefers-reduced-motion: reduce) { .ds-button-secondary { transition: none; } } .ds-button-secondary { background: #151b24; color: var(--text, #EDF1F7); } .ds-button-secondary:hover { background: #222a36; border-color: #596276; }"
+    },
+    {
+      "name": "Compact installation action",
+      "kind": "button",
+      "refersTo": "button-compact",
+      "description": "Quiet footer actions with the original button behavior.",
+      "html": "<a href=\"#\" class=\"ds-button-compact\">Figma installation</a>",
+      "css": ".ds-button-compact { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; padding: .8rem 1.3rem; min-height: 48px; border: 1px solid var(--steel, #2A3140); border-radius: 5px; font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); font-size: .875rem; line-height: 1.65; font-weight: 650; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; } .ds-button-compact svg { width: 1.15em; height: 1.15em; } .ds-button-compact:hover { transform: translateY(-2px); } .ds-button-compact:active { transform: translateY(0); } .ds-button-compact:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; } @media (prefers-reduced-motion: reduce) { .ds-button-compact { transition: none; } } .ds-button-compact { background: transparent; color: var(--muted, #9DA7B8); border: 0; padding: .2rem 0; min-height: 32px; font-weight: 450; }"
+    },
+    {
+      "name": "Range setting",
+      "kind": "input",
+      "refersTo": "range-control",
+      "description": "Native adjustment control with a measured output and helper copy.",
+      "html": "<div class=\"ds-range\"><label for=\"ds-movement\">Stripe movement <output for=\"ds-movement\">48 px</output></label><input id=\"ds-movement\" type=\"range\" min=\"0\" max=\"120\" step=\"4\" value=\"48\" aria-describedby=\"ds-range-note\"><p id=\"ds-range-note\">Distance inside the fixed clipping area.</p></div>",
+      "css": ".ds-range { font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); color: var(--text, #EDF1F7); line-height: 1.65; } .ds-range label { display: flex; justify-content: space-between; align-items: center; gap: .5rem; font-size: .875rem; } .ds-range output { font-family: var(--mono, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace); font-size: .75rem; line-height: 1.6; color: var(--warm, #FFB383); } .ds-range input { accent-color: var(--ember, #FF7A2F); width: 100%; min-height: 2.75rem; cursor: pointer; } .ds-range p { color: var(--muted, #9DA7B8); font-size: .75rem; margin: 0; } .ds-range input:disabled { cursor: default; opacity: .7; } .ds-range input:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; }"
+    },
+    {
+      "name": "Main navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Plain links with a clear current-page state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#\">Features</a><a href=\"#\" aria-current=\"page\">Guide</a><a href=\"#\">Account linking</a><a href=\"#\">Support</a></nav>",
+      "css": ".ds-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1.7rem; font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); line-height: 1.65; } .ds-nav a { color: var(--muted, #9DA7B8); font-size: .875rem; padding-block: .7rem; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: var(--text, #EDF1F7); } .ds-nav a:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; }"
+    },
+    {
+      "name": "Release metadata",
+      "kind": "chip",
+      "refersTo": "release-pill",
+      "description": "A changelog link that records the actual version and alpha status.",
+      "html": "<a href=\"#\" class=\"ds-release\"><span class=\"ds-release-square\" aria-hidden=\"true\"></span> FRAMEFORGE 0.1.7 <span class=\"ds-release-divider\" aria-hidden=\"true\"></span> ALPHA</a>",
+      "css": ".ds-release { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--mono, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace); font-size: .75rem; line-height: 1.6; letter-spacing: .045em; color: var(--muted, #9DA7B8); border: 1px solid var(--steel, #2A3140); border-radius: 30px; padding: .4rem .75rem; text-decoration: none; } .ds-release-square { width: 6px; height: 6px; background: var(--ember, #FF7A2F); } .ds-release-divider { height: 12px; width: 1px; background: var(--steel, #2A3140); } .ds-release:hover { color: var(--warm, #FFB383); } .ds-release:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; }"
+    },
+    {
+      "name": "Feature surface",
+      "kind": "card",
+      "refersTo": "surface-card",
+      "description": "A shallow gradient and thin border contain feature explanation.",
+      "html": "<article class=\"ds-surface\"><h3>Your layers.<br>Still your layers.</h3><p>Supported frames, text, buttons, inputs, and layouts become native Roblox objects.</p></article>",
+      "css": ".ds-surface { background: linear-gradient(135deg, #151b24, #10151d); border: 1px solid var(--steel, #2A3140); border-radius: 8px; padding: 2.3rem; color: var(--text, #EDF1F7); font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); line-height: 1.65; } .ds-surface h3 { font-family: 'Manrope Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 1.7rem; font-weight: 650; line-height: 1.12; letter-spacing: -.025em; margin: 0 0 1rem; } .ds-surface p { color: var(--muted, #9DA7B8); font-size: .9375rem; max-width: 430px; margin: 0; } @media (max-width: 580px) { .ds-surface { padding: 1.6rem; } }"
+    },
+    {
+      "name": "Warm notice",
+      "kind": "card",
+      "refersTo": "notice",
+      "description": "Contextual compatibility and availability guidance.",
+      "html": "<aside class=\"ds-notice\"><strong>Changed artwork can need a fresh upload</strong><p>After editing artwork, upload the new PNG and map its new key.</p></aside>",
+      "css": ".ds-notice { padding: 1.25rem 1.5rem; background: #201b19; border: 1px solid #6b4935; border-left: 1px solid var(--ember, #FF7A2F); border-radius: 5px; font-family: var(--sans, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif); line-height: 1.85; } .ds-notice strong { color: var(--warm, #FFB383); font-weight: 650; } .ds-notice p { color: #d5bdac; margin: .5rem 0 0; }"
+    },
+    {
+      "name": "Masked interaction button",
+      "kind": "custom",
+      "refersTo": "masked-button",
+      "description": "Stationary clipping mask with hover/focus stripe movement and 2D tilt.",
+      "html": "<button type=\"button\" class=\"ds-masked-button\"><span class=\"ds-stripe-mask\" aria-hidden=\"true\"><span class=\"ds-stripes\"></span></span><span>LET’S BUILD</span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></button>",
+      "css": ".ds-masked-button { width: min(320px, 100%); min-height: 96px; background: var(--ember, #FF7A2F); border: 1px solid var(--warm, #FFB383); border-radius: 8px; color: var(--obsidian, #0B0F14); font-family: var(--mono, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace); font-size: 1.65rem; line-height: 1.2; font-weight: 800; box-shadow: 0 8px 20px rgb(0 0 0 / 25%); position: relative; display: flex; align-items: center; justify-content: center; gap: 1rem; transition: transform .32s ease; isolation: isolate; cursor: pointer; } .ds-masked-button svg { width: 1.15em; height: 1.15em; color: #4f220a; } .ds-stripe-mask { position: absolute; inset: 0; overflow: hidden; border-radius: 7px; z-index: -1; } .ds-stripes { position: absolute; inset: -200px; background: repeating-linear-gradient(115deg, transparent 0 30px, rgb(11 15 20 / 14%) 30px 55px); transition: transform .45s ease; } .ds-masked-button:hover, .ds-masked-button:focus-visible { transform: rotate(var(--button-tilt, -3deg)); } .ds-masked-button:hover .ds-stripes, .ds-masked-button:focus-visible .ds-stripes { transform: translateX(var(--stripe-distance, 48px)); } .ds-masked-button:focus-visible { outline: 2px solid var(--warm, #FFB383); outline-offset: 5px; } @media (prefers-reduced-motion: reduce) { .ds-masked-button, .ds-stripes { transition: none; transform: none !important; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Conversion Workbench",
+    "overview": "FrameForge places editable structure at the center of a quiet digital workbench. Obsidian ground, steel dividers, shallow graphite-toned surfaces, and concentrated ember actions make the interface feel precise and useful. The supplied transparent forge mark remains the identity anchor.\n\nOpen geometric display type gives the product a confident voice; plain sans text makes the guide and legal pages comfortable to read. Technical diagrams and an interactive masked stripe button explain the native hierarchy. The implemented world combines border-defined panels with restrained gradients and soft illustration shadows.",
+    "keyCharacteristics": [
+      "One orange accent family against cool dark neutrals.",
+      "Large balanced headings and quieter reading text.",
+      "Steel rules, shallow corners, and generous section spacing.",
+      "Real HTML/CSS diagrams and controls that preserve structure.",
+      "Purposeful motion with keyboard, pause, and reduced-motion behavior."
+    ],
+    "rules": [
+      {
+        "name": "Ember Action",
+        "body": "Use ember for primary actions and meaningful conversion highlights; use its warm tint for links, focused outlines, and selected technical details.",
+        "section": "colors"
+      },
+      {
+        "name": "Technical Type",
+        "body": "Reserve monospace for code, hierarchy, measurements, version metadata, and functional interface labels. Lead sections with their actual heading.",
+        "section": "typography"
+      },
+      {
+        "name": "Quiet Depth",
+        "body": "Use tonal surfaces and steel borders for ordinary content. Keep soft shadows and faint ember glow attached to actions or the conversion illustration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do retain the supplied transparent FrameForge mark and the dark steel / ember identity.",
+      "Do use Manrope for headings, plain sans for reading, and monospace for technical content.",
+      "Do use border-defined surfaces and shallow corners, matching the component tokens.",
+      "Do stack diagrams and controls on narrow screens so labels and hierarchies remain readable.",
+      "Do preserve warm visible focus, native control semantics, motion pause, and reduced-motion support.",
+      "Do keep explanatory interfaces editable as HTML/CSS with inline SVG for interface icons."
+    ],
+    "donts": [
+      "Don't introduce purple into the established palette.",
+      "Don't add decorative kickers above section or document titles.",
+      "Don't turn illustration-specific small typography, rotated windows, or grid texture into ordinary reading styles.",
+      "Don't flatten the conversion exhibit or interaction preview into a screenshot.",
+      "Don't replace the supplied logo or place an opaque backing inside its transparent asset.",
+      "Don't add continuous motion without the existing visibility, pause, and reduced-motion behavior."
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+# Keep the compiled Studio download byte-identical on Windows and Linux.
+website/public/downloads/*.rbxmx -text
