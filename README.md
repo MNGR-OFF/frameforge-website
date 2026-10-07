@@ -8,5 +8,7 @@ service, and their internal documentation stay in the separate original project.
 The compiled Studio plugin in website/public/downloads/ is the intentional
 public download.
 
-Publication is currently paused by the workflow until the owner approves
-the Privacy and Terms text and supplies the required factual details.
+Pushes that change the website or its workflow on the default branch publish
+automatically after verification and publication configuration checks pass.
+The current static website supports clearly labelled Privacy and Terms drafts;
+policy adoption remains a separate owner decision. See [deployment setup](website/docs/DEPLOYMENT-READINESS.md).
