@@ -135,7 +135,7 @@ export const termsSections: LegalSection[] = [
   {
     id: 'installation', title: 'Downloads and manual uploads',
     paragraphs: [
-      'Use the official FrameForge download or a verified listing linked by this website. The Studio plugin can be installed from its published file when a Creator Store listing is unavailable. Follow the installation guide and avoid running duplicate copies.',
+      'Use the FrameForge listings linked by this website on Figma Community and the Roblox Creator Store, or download the published Studio plugin file. Follow the installation guide and avoid running duplicate copies.',
       'In the current workflow, you upload required images to Roblox yourself and enter their asset IDs in FrameForge. Use an account you are permitted to use and follow Roblox’s asset rules. Keep private credentials and design files secure.',
       'Hosted Roblox account linking and automatic uploading are not live. Their privacy information, permissions, and any additional terms must be reviewed and supplied before they become available. No Roblox password or connection is needed to use the website.',
     ],

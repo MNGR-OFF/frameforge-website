@@ -15,8 +15,8 @@ export const site = {
     retentionReviewed: true, providersReviewed: false, legalScopeReviewed: false
   },
   links: {
-    figmaPlugin: null as string | null,
-    robloxPlugin: null as string | null,
+    figmaPlugin: 'https://www.figma.com/community/plugin/1688245182223969540' as string | null,
+    robloxPlugin: 'https://create.roblox.com/store/asset/90693215219484/FrameForge' as string | null,
     figmaCommunity: 'https://www.figma.com/community',
     robloxCreatorStore: 'https://create.roblox.com/store/plugins',
     robloxAssetsGuide: 'https://create.roblox.com/docs/art/creator-store',
@@ -63,7 +63,7 @@ export const navigation = [
 ];
 
 export const workflow = [
-  { title: 'Install both plugins', text: 'Use the official Figma listing when available. For Studio, download the plugin file or use a verified Creator Store listing. The guide walks you through installation.' },
+  { title: 'Install both plugins', text: 'Get FrameForge from Figma Community. For Studio, choose the Roblox Creator Store or the plugin file. The guide walks you through installation.' },
   { title: 'Choose your root frame', text: 'Select the complete interface you want to export. Keep its triggers and target layers inside that root.' },
   { title: 'Make it interactive', text: 'Configure optional behaviors and effects, then save the layer settings. Hover and Loop are explicit choices.' },
   { title: 'Export and review', text: 'Choose Export to Roblox and read the diagnostics. Warnings identify layers that need an image fallback or adjustment.' },

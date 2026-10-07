@@ -19,6 +19,6 @@ const results = await Promise.all([...urls].map(async url => {
   catch (error) { return {url,error:error.message}; }
 }));
 await mkdir('verification', { recursive: true });
-await writeFile('verification/external-links.json', JSON.stringify({ checkedOn: '2026-10-05', results }, null, 2));
+await writeFile('verification/external-links.json', JSON.stringify({ checkedOn: new Date().toISOString(), results }, null, 2));
 console.log(results.map(result => `${result.status ?? result.error} ${result.url}`).join('\n'));
-console.log('Blocked automated requests do not establish that an official page is unavailable. Plugin listing installation URLs remain unverified and are not linked.');
+console.log('Blocked automated requests do not establish that an official page is unavailable. HTTP checks do not verify store installation or the listing release version.');

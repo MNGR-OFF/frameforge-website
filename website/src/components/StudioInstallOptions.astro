@@ -1,0 +1,73 @@
+---
+import { localUrl, safeExternalUrl, site } from '../data/site';
+import Icon from './Icon.astro';
+interface Props { variant?: 'primary' | 'secondary' }
+const { variant = 'secondary' } = Astro.props;
+const download = site.downloads.studio;
+---
+<details class="studio-choice">
+  <summary class:list={['button', variant, 'studio-choice-trigger']}>
+    <Icon name="layers" /> Get Studio plugin <Icon name="chevron" class="studio-choice-chevron" />
+  </summary>
+  <div class="studio-choice-options">
+    {site.links.robloxPlugin && <a class="studio-choice-option" href={safeExternalUrl(site.links.robloxPlugin)} target="_blank" rel="noopener noreferrer">
+      <span><strong>Roblox Creator Store</strong><small>Install through Roblox</small></span><Icon name="arrow" />
+    </a>}
+    {download.enabled && <a class="studio-choice-option" href={localUrl(download.path)} download={download.fileName}>
+      <span><strong>Download .rbxmx</strong><small>Local plugin file · {download.version} alpha</small></span><Icon name="down" />
+    </a>}
+  </div>
+</details>
+
+<style>
+  .studio-choice { position: relative; min-width: 0; margin: 0; padding: 0; border: 0; }
+  .studio-choice-trigger { list-style: none; }
+  .studio-choice-trigger::-webkit-details-marker { display: none; }
+  .studio-choice-chevron { width: 1rem; height: 1rem; transition: transform .2s; }
+  .studio-choice[open] .studio-choice-chevron { transform: rotate(180deg); }
+  .studio-choice[open] > summary { transform: none; }
+  .studio-choice-options { position: absolute; inset-block-start: calc(100% + .5rem); inset-inline-start: 0; z-index: 10; width: 21rem; max-width: calc(100vw - 2.5rem); padding: .4rem; border: 1px solid #465064; border-radius: 6px; background: #151b24; }
+  .studio-choice-option { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; padding: .8rem 1rem; border-radius: 3px; color: var(--text); text-decoration: none; }
+  .studio-choice-option + .studio-choice-option { border-top: 1px solid var(--steel); }
+  .studio-choice-option:hover { background: #222a36; color: var(--text); }
+  .studio-choice-option:focus-visible { outline-offset: -2px; }
+  .studio-choice-option > span { min-width: 0; }
+  .studio-choice-option strong { display: block; color: var(--text); font-size: 1rem; font-weight: 650; line-height: 1.4; }
+  .studio-choice-option small { display: block; margin-top: .25rem; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+  .studio-choice-option > :global(.icon) { color: var(--warm); }
+  :global(.install-panel) .studio-choice-options,
+  :global(.download-action) .studio-choice-options { inset-inline-start: auto; inset-inline-end: 0; }
+  :global(.compact) .studio-choice-options { inset-block-start: auto; inset-block-end: calc(100% + .5rem); inset-inline-start: auto; inset-inline-end: 0; }
+  :global(.compact) .studio-choice-trigger { min-height: 44px; }
+  @media (max-width: 580px) {
+    .studio-choice { width: 100%; }
+    .studio-choice > summary { width: 100%; }
+    .studio-choice .studio-choice-options { position: static; width: 100%; max-width: none; margin-top: .5rem; }
+  }
+</style>
+
+<script>
+  const choices = Array.from(document.querySelectorAll<HTMLDetailsElement>('.studio-choice'));
+  choices.forEach(choice => {
+    choice.addEventListener('toggle', () => {
+      if (choice.open) choices.forEach(other => { if (other !== choice) other.open = false; });
+    });
+    choice.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && choice.open) {
+        event.preventDefault();
+        choice.open = false;
+        choice.querySelector('summary')?.focus();
+      }
+    });
+    choice.addEventListener('focusout', event => {
+      if (event.relatedTarget instanceof Node && !choice.contains(event.relatedTarget)) choice.open = false;
+    });
+    choice.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { choice.open = false; }));
+  });
+  document.addEventListener('click', event => {
+    if (event.target instanceof Node) {
+      const target = event.target;
+      choices.forEach(choice => { if (choice.open && !choice.contains(target)) choice.open = false; });
+    }
+  });
+</script>
